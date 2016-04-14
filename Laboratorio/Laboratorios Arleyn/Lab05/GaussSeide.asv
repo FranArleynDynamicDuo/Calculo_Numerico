@@ -1,0 +1,36 @@
+%Metodo iterativo de Jacobi
+
+function [x1] = GaussSeide(M,b,tol,maxi,x0)
+
+w=1;
+g=1;
+
+for k=1
+    x0=zeros(n,1);
+    x1=x0+1;
+    x2=x0+1;
+    
+    while norm(x2-x0)>tol
+        
+        x2=x1;
+        x0=x1;
+        x1(1)=(b(1)-((M(1,2)*x0(2))))/M(1,1);
+        x0=x1;
+        for i=2:n-1
+              
+          x1(i)=(b(i)-((M(i,i-1)*x0(i-1))+(M(i,i+1)*x0(i+1))))/M(i,i);
+          x0=x1;
+        end 
+        
+        x1(n)=(b(n)-((M(n,n-1)*x0(n-1))))/M(n,n);
+        x0=x1;
+    
+        if g>=maxi
+           disp([cumplio el maximo de iteraciones])
+           break
+        
+        end
+        g=g+1
+    end
+end
+end

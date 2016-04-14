@@ -1,0 +1,19 @@
+% Luis Vieira
+% 07-41651
+% Funcion Para saber si una matriz acepta cholesky
+function [] = comprobarCho(A)
+%Parametros:
+% A matriz cuadrada a resolver.
+% Salida:  
+
+V = eig(A);
+n = size(V);
+n = n(1);
+for i =1:n
+    if V(i) < 0
+    
+       display('El autovalors de la matriz es negativo: ')
+       display(V(i))
+       display('No se le puede aplicar el metodo de cholesky')
+    end
+end

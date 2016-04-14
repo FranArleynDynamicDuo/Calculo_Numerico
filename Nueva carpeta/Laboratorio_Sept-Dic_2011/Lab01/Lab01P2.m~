@@ -1,0 +1,8 @@
+% Luis Vieira
+% 07-41651
+% Laboratorio 01
+% Script para la pregunta 2
+
+x = rand(1000,1) .* 10^(-5);
+
+

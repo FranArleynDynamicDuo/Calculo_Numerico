@@ -1,0 +1,35 @@
+% Luis Vieira
+% 07-41651
+% Laboratorio 03
+% Script para la pregunta 02
+clear all
+clc
+format long
+
+% Pregunta a
+display('Pregunta a')
+
+A =[
+    90 1 2 3 4;
+    1 90 2 3 4;
+    1 2 90 3 4; 
+    1 2 3 90 4;
+    1 2 3 4 90
+   ];
+
+b =[
+    1;
+    2;
+    3;
+    4;
+    5
+   ];
+
+c = [ 1 2 3 4 5 ];
+
+
+
+
+
+% Pregunta b
+display('Pregunta b')

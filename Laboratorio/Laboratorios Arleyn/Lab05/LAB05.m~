@@ -1,0 +1,102 @@
+% Nombre: Arleyn Goncalves
+% Carnet: 10-10290
+% LABORATORIO 5
+
+
+
+
+
+
+% 1. Programe en matlab los m ́etodos de Jacobi y Gauss-Seidel como 
+% funciones que reciban los siguientes par ́ametros; matriz A, vector de 
+% ladoderecho B, tolerancia tol, iterado inicial x0 y maximo numero de
+% iteraciones maxiter, mientras que el parametro de retorno sera la 
+% solucion x del sistema de ecuaciones. Valide sus resultados con alguna
+% matriz y vectores de prueba dados por Ud.
+
+    % GauussSeide
+    tol= 0.00000001;
+    maxi = 1000;
+    n = size(A);
+    x0=zeros(n,1);
+
+    % GauussSeide
+    %x1 = GaussSeide(A,B,tol,maxi,x0)
+    
+    % Jacobi
+    %x2 = Jacobi(A,B,tol,maxi,x0)
+    
+% 2. Programe la resolucion de un sistema de ecuaciones usando 
+% factorizacion LU con sustituci ́on hacia delante y hacia atras. 
+% Cada una de estas acciones en una funcion. Para lo anterior use la 
+% factorizacion programada en el laboratorio pasado.
+
+    % Factorizacion LU
+    
+        %[L,U] =lu_lab3(A);
+        %[d] = sustitucionp(L,B);
+        %[x] = sustitucionr(U,d);
+        %Resultado = x
+        
+% 3. Construya un script o programa principal en el cual se resuelven los 3
+% sistemas de ecuaciones, uno por cada columna de la matriz B, mediante
+% los m ́etodos LU, Jacobi y Gauss-Seidel, para una tolerancia de 1 × 10 −5
+% y un iterado inicial x0 = (1, . . . , 1) y x0 = (0, . . . , 0). 
+% Mida los tiempos y numero de iteraciones que toma cada m ́etodo 
+% (e. g. use la funci ́on cputime de Matlab) y las iteraciones 
+% (en el caso de Jacobi y Gauss)para cada m ́etodo y al resolver cada 
+% sistema de ecuaciones.
+
+    % PRIMERA PARTE
+        tol= 1*10^(-5);
+        maxi = 1000;
+        n = size(A);
+        x0=zeros(n,1);
+    
+    % GaussSeide
+        time = cputime;
+        x1 = GaussSeide(A,B,tol,maxi,x0);
+        time1x0 = cputime - time
+        
+    % Jacobi
+        time = cputime;
+        x2 = Jacobi(A,B,tol,maxi,x0);
+        time2x0 = cputime - time
+        
+    % Factorizacion LU
+        time = cputime;
+        [L,U] =lu_lab3(A);
+        [d] = sustitucionp(L,B);
+        [x] = sustitucionr(U,d);
+        Resultado = x;
+        time3x0 = cputime - time
+        
+   % SEGUNDA PARTE
+        tol= 1*10^(-5);
+        maxi = 1000;
+        n = size(A);
+        x0=ones(n,1);
+        
+   % GaussSeide
+        time = cputime;
+        x1 = GaussSeide(A,B,tol,maxi,x0);
+        time1x1 = cputime - time
+        
+   % Jacobi
+        time = cputime;
+        x2 = Jacobi(A,B,tol,maxi,x0);
+        time2x1 = cputime - time
+        
+   % Factorizacion LU
+        time = cputime;
+        [L,U] =lu_lab3(A);
+        [d] = sustitucionp(L,B);
+        [x] = sustitucionr(U,d);
+        Resultado = x;
+        time3x1 = cputime - time
+        
+    
+
+% 4. Elabore una tabla con los resultados obtenidos y escriba sus 
+% conclusiones de manera concisa y anal ́ıtica, interprete los resultados
+% que observa e indique el m ́etodo que Ud. recomendar ́ıa y por que.    

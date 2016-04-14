@@ -1,0 +1,40 @@
+
+% Calcular los autovalores mas cercanos a 19
+
+function [landa,V] = MasCercano(A,q,X,epsilon,max1)
+
+% Inicializacion de los parametros
+landa= 0;
+contador = 0;
+error =1;
+[n n] = size(A);
+A = A - q*eye(n);
+estado = 1;
+[L,U] = lu(A);
+
+while((contador <= max1) & (estado ==1))
+    
+    %Resolucion del sistema AY=X
+    y = L \(x);
+    y = U\y;
+    
+    %Normalizacion de Y
+    [m j] = max(abs(y));
+    c1 = m;
+    dc = abs (landa - c1);
+    y = ( 1/c1 )*y;
+    
+    % Actualizacion de X y de lambda y criterio de convergencia
+    dv = norm( x - y,inf);
+    error = max(dc,dv);
+    x = y;
+    landa = c1;
+    estado = 0;
+    
+    if( error > epsilon)
+        estador = 1;
+    end
+    cnt = cnt+1;
+end
+lambda=alfa+1/lambda;
+V = X;

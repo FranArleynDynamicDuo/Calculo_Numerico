@@ -1,0 +1,45 @@
+%Algoritmo academico de eliminacion gaussiana con pivoteo
+%modificar para no mover los ceros innecesarios
+
+para k = 1 hasta n-1
+    
+    imax = k;
+    
+    %busqueda del elemento mayor en la columna k 
+    para i = k+1 hasta n
+        si ( abs(a(i,k)) > abs(a(imax,k)) )
+            imax = i;
+        fin si
+        
+    fin para
+    
+    %intercambio de las filas k e imax de la matriz A
+    para j = k hasta n
+       
+        temp = a(imax,j); 
+        a(imax,j) = a(k,j); 
+        a(k,j) = temp;
+        
+    fin para
+    
+    %intercambio de las filas k e imax del vector b
+    temp = b(imax);
+    b(imax) = b(k);
+    b(k) = temp;
+    
+    %eliminacion gaussiana
+    para i = k+1 hasta n
+        
+        alfa = a(i,k)/a(k,k);
+        
+        para j = k hasta n
+            
+            a(i,j) = a(i,j) - alfa*a(k,j);
+            
+        fin para
+        
+        b(i) = b(i) - alfa*b(k);
+        
+    fin para
+        
+fin para    
